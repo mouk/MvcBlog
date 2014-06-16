@@ -1,23 +1,9 @@
-﻿<h5>XXX posts</h5>
-<article>
-    <h2><a href="#">First blog post</a></h2>
-    <section>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
-        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus 
-        est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-    </section>
-    <section>
-        30 Comments
-    </section>
-    <section>
-        <small>Author:  Gustav Gans
-        </small>
-        <br />
-        <p>Tags:
-            <a title="bootstrap example" href="/tagged/example"><span class="badge label">example</span></a>
-            <a title="bootstrap example" href="/tagged/example2"><span class="badge label">example2</span></a>
-        </p>
-    </section>
-</article>
+﻿@model MyBlog.Models.PostListingViewModel
+<h5>@Model.TotalCount posts</h5>
+
+@foreach (var post in Model.Posts)
+{
+
+
+
+}

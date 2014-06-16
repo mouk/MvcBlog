@@ -1,0 +1,19 @@
+﻿@model MyBlog.Models.PostViewModel
+<article>
+    <h2><a href="#">@Model.Title</a></h2>
+    <section>
+        @Model.Body
+    </section>
+    <section>
+        @Model.CommentCount Comments
+    </section>
+    <section>
+        <p>
+            Tags:
+            @foreach (var tag in Model.Tags)
+            {
+                @Html.ActionLink(tag,"Show", "Tag", new {id = tag}, new {@class="badge label"})
+            }
+        </p>
+    </section>
+</article>
