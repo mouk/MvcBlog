@@ -1,0 +1,10 @@
+﻿@model System.Collections.Generic.IEnumerable<string>
+<section>
+        <p>
+            Tags:
+            @foreach (var tag in Model)
+            {
+                @Html.ActionLink(tag,"tagged", "post", new {id = tag}, new {@class="badge label"})
+            }
+        </p>
+    </section>

@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
@@ -137,6 +138,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Data\Post.cs" />
     <Compile Include="Data\PostContext.cs" />
+    <Compile Include="Models\CommentInsertModel.cs" />
     <Compile Include="Models\PostListingViewModel.cs" />
     <Compile Include="Models\PostViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -239,6 +241,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Post\Index.cshtml" />
     <Content Include="Views\Post\_SinglePost.cshtml" />
+    <Content Include="Views\Post\Show.cshtml" />
+    <Content Include="Views\Post\_Tag.cshtml" />
+    <Content Include="Views\Post\_Comments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,35 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
-using Data;
+using MyBlog.Data;
 using MyBlog.Models;
 
 namespace MyBlog.Controllers
 {
     public class PostController : Controller
     {
-        private PostContext _posts = new PostContext();
+        private readonly PostContext _dataContext = new PostContext();
 
         public ActionResult Index()
         {
+            var posts = _dataContext.Posts.Take(9)
+                              .Select(p => new
+                                  {
+                                      Id = p.Id,
+                                      Title = p.Title,
+                                      Body = p.Body.Substring(0, 200) + " ...</p>",
+                                      Tags = p.Tags.Select(t => t.Name),
+                                      CommentCount = p.Comments.Count()
+                                  }).AsEnumerable()
+                              .Select(p => new PostViewModel
+                                  {
+                                      Id = p.Id,
+                                      Title = p.Title,
+                                      Body = p.Body,
+                                      CommentCount = p.CommentCount,
+                                      Tags = p.Tags.ToList()
+                                  }).ToList();
             var model = new PostListingViewModel
                 {
-                    Posts = _posts.Posts.Take(9)
-                    .Select(p => new PostViewModel
-                        {
-                            Id = p.Id,
-                            Title = p.Title,
-                            Body =  p.Body.Substring(0,200) + " ...",
-                            Tags =  p.Tags.Select(t => t.Name).ToList(),
-                            CommentCount = p.Comments.Count()
-                        })
-                        .ToList(),
-                        TotalCount = _posts.Posts.Count()
+                    Posts = posts,
+                    TotalCount = _dataContext.Posts.Count()
                 };
             return View(model);
         }
 
+        public ActionResult Show(int id)
+        {
+            var post = _dataContext.Posts.SingleOrDefault(p => p.Id == id);
+            if(post == null)
+                return HttpNotFound();
+
+            return View(post);
+
+        }
+        public ActionResult Tagged(string id)
+        {
+            var posts = _dataContext.PostsByTagName(id).ToList();
+
+            return Json(posts, JsonRequestBehavior.AllowGet);
+
+        }
     }
 }

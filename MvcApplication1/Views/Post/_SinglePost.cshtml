@@ -1,19 +1,11 @@
 ﻿@model MyBlog.Models.PostViewModel
 <article>
-    <h2><a href="#">@Model.Title</a></h2>
+    <h2>@Html.ActionLink(Model.Title, "Show", new {id=Model.Id})</h2>
     <section>
-        @Model.Body
+        @Html.Raw(Model.Body)
     </section>
     <section>
         @Model.CommentCount Comments
     </section>
-    <section>
-        <p>
-            Tags:
-            @foreach (var tag in Model.Tags)
-            {
-                @Html.ActionLink(tag,"Show", "Tag", new {id = tag}, new {@class="badge label"})
-            }
-        </p>
-    </section>
+     @Html.Partial("_Tag", Model.Tags)
 </article>

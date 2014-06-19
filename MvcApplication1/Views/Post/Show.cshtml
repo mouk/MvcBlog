@@ -1,0 +1,10 @@
+﻿@model Data.Post
+
+<article>
+    <h2>@Model.Title</h2>
+    <section>
+        @Html.Raw(Model.Body)
+    </section>
+    @Html.Partial("_Tag", Model.Tags.Select(t => t.Name))
+    @Html.Partial("_Comments", Model.Comments)
+</article>
