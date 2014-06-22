@@ -5,14 +5,13 @@
     <h3>@Model.Count comments</h3>
     @foreach (var comment in Model)
     {
-        <article>
+        <article class="comment span2 well">
             <h4>@comment.Title</h4>
             <h5>By: @comment.Username</h5>
             <p>
                 @comment.Body
             </p>
-            <time>@comment.CreatedAt</time>
+            <time>Am  @comment.CreatedAt.ToShortDateString() um  @comment.CreatedAt.ToShortTimeString() Uhr</time>
         </article>
     }
-    <h4>Add comment</h4>
 </section>

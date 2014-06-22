@@ -52,5 +52,10 @@ namespace MyBlog.Controllers
             return Json(posts, JsonRequestBehavior.AllowGet);
 
         }
+
+        public ActionResult AddComment(int id)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

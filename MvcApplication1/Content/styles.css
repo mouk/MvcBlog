@@ -81,6 +81,10 @@ a {
   color:#ffffff;
 }
 
+.well {
+  background-color: #444444;
+}
+
 /* collapsed sidebar styles */
 @media screen and (max-width: 767px) {
   .row-offcanvas {

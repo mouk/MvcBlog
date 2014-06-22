@@ -7,4 +7,5 @@
     </section>
     @Html.Partial("_Tag", Model.Tags.Select(t => t.Name))
     @Html.Partial("_Comments", Model.Comments)
+    @Html.ActionLink("Add comment","addcomment", new {id = Model.Id}, new {@class="btn btn-primary"})
 </article>
