@@ -14,5 +14,4 @@ _ReSharper.*
 *[Rr]e[Ss]harper.user
 _ReSharper.*/
 packages/*
-App_Data/
 msbuild.log
